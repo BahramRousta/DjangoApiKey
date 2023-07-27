@@ -1,4 +1,3 @@
-from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import authentication
 from rest_framework.exceptions import AuthenticationFailed
 from apikey.authentication.interfaces import validate_api_key_interface
@@ -6,7 +5,6 @@ from apikey.authentication.interfaces import validate_api_key_interface
 
 class APIKeyAuthentication(authentication.BaseAuthentication):
     def authenticate(self, request):
-        print(request.headers)
         api_key = request.headers.get('Api-Key')
 
         if not api_key:
@@ -15,8 +13,8 @@ class APIKeyAuthentication(authentication.BaseAuthentication):
         api_key = api_key.split(' ')[-1]
 
         try:
-            api_key = validate_api_key_interface(api_key=api_key)
-        except ObjectDoesNotExist:
-            raise AuthenticationFailed('Invalid API key.')
+            validate_api_key_interface(api_key=api_key)
+        except AuthenticationFailed as e:
+            raise e
 
         return api_key, None
