@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'apikey.common.apps.CommonConfig'
 ]
 
+AUTH_USER_MODEL = 'users.BaseUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
