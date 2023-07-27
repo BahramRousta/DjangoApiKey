@@ -1,6 +1,5 @@
 from django.urls import path, include
 
-
 urlpatterns = [
-    path(),
+    path('company/', include('apikey.company.urls')),
 ]
