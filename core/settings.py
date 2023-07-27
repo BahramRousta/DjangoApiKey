@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 
     'apikey.users.apps.UsersConfig',
     'apikey.common.apps.CommonConfig',
+    'apikey.authentication.apps.AuthenticationConfig',
     'apikey.company.apps.CompanyConfig',
     'apikey.api.apps.ApiConfig',
 ]
