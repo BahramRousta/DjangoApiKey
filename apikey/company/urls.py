@@ -3,5 +3,5 @@ from .apis import CreateCompanyAPIView
 
 
 urlpatterns = [
-    path('company/', CreateCompanyAPIView.as_view(), name='create-company'),
+    path('create/', CreateCompanyAPIView.as_view(), name='create-company'),
 ]
