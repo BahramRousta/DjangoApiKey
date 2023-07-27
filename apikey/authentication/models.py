@@ -7,7 +7,6 @@ import hashlib
 
 
 class ApiKeyManager(models.Manager):
-
     def generate_api_key(self):
         random_string = secrets.token_urlsafe(64)
         hashed_api_key = hashlib.sha256(random_string.encode()).hexdigest()
@@ -17,7 +16,7 @@ class ApiKeyManager(models.Manager):
 class ApiKey(BaseModel):
 
     api_key = models.CharField(max_length=255, default=ApiKeyManager().generate_api_key, editable=False)
-    company = models.ForeignKey(Company, related_name='api_key', on_delete=models.PROTECT)
+    company = models.ForeignKey(Company, related_name='api_keys', on_delete=models.PROTECT)
 
     objects = ApiKeyManager()
 
