@@ -1,3 +1,10 @@
 from django.db import models
+from apikey.common.models import BaseModel
 
-# Create your models here.
+
+class ApiKey(BaseModel):
+
+    api_key = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.api_key
