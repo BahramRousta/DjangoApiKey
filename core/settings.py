@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'apikey.authentication.apps.AuthenticationConfig',
     'apikey.company.apps.CompanyConfig',
     'apikey.api.apps.ApiConfig',
+    'apikey.article.apps.ArticleConfig'
 ]
 
 AUTH_USER_MODEL = 'users.BaseUser'
